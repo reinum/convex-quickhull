@@ -67,71 +67,60 @@ def insideTriangle(Axy, Bxy, Cxy, point):
         return False
 
 
+# converting necessary shit
+floatedPoints = []
+for point in points:
+    pointXY = point.split(" ")  # get xy floats
+    # converting both coords to floats in 1 line, sick
+    pointXY = [float(coor) for coor in pointXY]
+    floatedPoints.append(pointXY)
+
 runs = 1
-done = False
-while points != []:
-    while True:
-        thisRun = []
-        lowestX, highestX = 72727, -69
-        pointIndex = {}
-        for point in points:
-            if point not in triangled:
-                pointXY = point.split(" ")  # get xy floats
-                # converting both coords to floats in 1 line, sick
-                pointXY = [float(coor) for coor in pointXY]
-                # if X of this point is lower than the lowest X we found before
-                if pointXY[0] < lowestX:
-                    lowestX = pointXY[0]
-                    pointIndex[str(pointXY[0])] = pointXY[1]
-                # if X of this point is higher than the highest X we found before
-                elif pointXY[0] > highestX:
-                    highestX = pointXY[0]
-                    pointIndex[str(pointXY[0])] = pointXY[1]
-        if highestX == -69:
-            done = True
-            break
-
-        highestXY = [highestX, pointIndex[str(highestX)]]
-        lowestXY = [lowestX, pointIndex[str(lowestX)]]
-        # we now have the lowest and highest X i guess
-        # now time for the part i dont fucking know how to make
-
-        # calcing distance from a point to the line
-        distanceIndex = {}
-        largestDistance = -1
-        for point in points:
-            if point not in triangled:
-                pointXY = point.split(" ")  # get xy floats
-                # shit doesnt work without this
-                pointXY = [float(p) for p in pointXY]
-                d = calcDistance(lowestXY, highestXY, pointXY)
-                if d > largestDistance:
-                    largestDistance = d
-                    distanceIndex[str(d)] = pointXY
-        furthestPoint = distanceIndex[str(largestDistance)]
-
-        # iterating over points and seeing if they are in the triangle or not
-        removedPointsCounter = 0
-        for point in points:
-            if point not in triangled:
-                pointXY = point.split(" ")  # get xy floats
-                # idk if this will work without this but i dont care ill leave it in
-                pointXY = [float(p) for p in pointXY]
-                isPointInTriangle = insideTriangle(
-                    lowestXY, highestXY, furthestPoint, pointXY)
-                if isPointInTriangle:
-                    triangled.append(point)
-                    thisRun.append(point)
-                    removedPointsCounter += 1
-
-        print(
-            f"[RUN {str(runs)}] Removed {str(removedPointsCounter)} point(s) in a hull!")
-        # print(f"[RUN {str(runs)}]", " | ".join(thisRun))
-        print(
-            f"[RUN {str(runs)}] Triangle points:", " ".join([str(el) for el in [lowestXY, highestXY, furthestPoint]]))
-        runs += 1
-        print("##################################################################")
-    if done:
+while True:
+    thisRun = []
+    lowestX, highestX = 72727, -69
+    pointIndex = {}
+    for point in floatedPoints:
+        # if X of this point is lower than the lowest X we found before
+        if point[0] < lowestX:
+            lowestX = point[0]
+            pointIndex[str(point[0])] = point[1]
+        # if X of this point is higher than the highest X we found before
+        elif point[0] > highestX:
+            highestX = point[0]
+            pointIndex[str(point[0])] = point[1]
+    if floatedPoints == [] or highestX == -69:
         break
+    highestXY = [highestX, pointIndex[str(highestX)]]
+    lowestXY = [lowestX, pointIndex[str(lowestX)]]
+    # we now have the lowest and highest X i guess
+    # now time for the part i dont fucking know how to make
+    # calcing distance from a point to the line
+    distanceIndex = {}
+    largestDistance = -1
+    for point in floatedPoints:
+        d = calcDistance(lowestXY, highestXY, point)
+        if d > largestDistance:
+            largestDistance = d
+            distanceIndex[str(d)] = point
+    furthestPoint = distanceIndex[str(largestDistance)]
+    # iterating over points and seeing if they are in the triangle or not
+    removePoints = []
+    for point in floatedPoints:
+        isPointInTriangle = insideTriangle(
+            lowestXY, highestXY, furthestPoint, point)
+        if isPointInTriangle:
+            removePoints.append(point)
 
+    for element in removePoints:
+        floatedPoints.remove(element)
+    print(
+        f"[RUN {str(runs)}] Removed {str(len(removePoints))} point(s) in a hull!")
+    print(f"[RUN {str(runs)}]", " | ".join(thisRun))
+    print(
+        f"[RUN {str(runs)}] Triangle points:", " ".join([str(el) for el in [lowestXY, highestXY, furthestPoint]]))
+    runs += 1
+    print("##################################################################")
+
+print(floatedPoints)
 print("Quickhulled in", int(round((time.time()-start_time)*1000, ndigits=0)), "ms!")
