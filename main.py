@@ -9,7 +9,6 @@ triangled = []
 
 """
 CONVEX HULL PROBLEM | QUICKHULL
-- inspo by devon crawfords school hw kekw
 
 this shit goes in a loop:
 - find the lowest X coord
