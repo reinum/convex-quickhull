@@ -1,9 +1,10 @@
 import time
 import numpy as np
 from numpy.linalg import norm
-start_time = time.time()
 
 points = open("points_10k.txt", "r").read().splitlines()
+start_time = time.time()
+
 triangled = []
 
 """
@@ -78,15 +79,15 @@ for point in points:
 runs = 1
 while True:
     thisRun = []
-    lowestX, highestX = 72727, -69
+    lowestX, highestX = None, None
     pointIndex = {}
     for point in floatedPoints:
         # if X of this point is lower than the lowest X we found before
-        if point[0] < lowestX:
+        if lowestX == None or point[0] < lowestX:
             lowestX = point[0]
             pointIndex[str(point[0])] = point[1]
         # if X of this point is higher than the highest X we found before
-        elif point[0] > highestX:
+        elif highestX == None or point[0] > highestX:
             highestX = point[0]
             pointIndex[str(point[0])] = point[1]
     if floatedPoints == [] or highestX == -69:
