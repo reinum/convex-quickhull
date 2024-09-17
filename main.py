@@ -1,8 +1,11 @@
 import time
 import numpy as np
 from numpy.linalg import norm
+timings = {"runs":{}}
 
+dataLoad = time.time()
 points = open("points_10k.txt", "r").read().splitlines()
+timings["fileLoadTime"] = float(round(time.time() - dataLoad, ndigits=2))
 start_time = time.time()
 
 triangled = []
@@ -76,7 +79,8 @@ for point in points:
     floatedPoints.append(pointXY)
 
 runs = 1
-while True:
+while floatedPoints:
+    runTime = time.time()
     thisRun = []
     lowestX, highestX = None, None
     pointIndex = {}
@@ -89,8 +93,7 @@ while True:
         elif highestX == None or point[0] > highestX:
             highestX = point[0]
             pointIndex[str(point[0])] = point[1]
-    if floatedPoints == [] or highestX == None:
-        break
+    if highestX == None: break
     highestXY = [highestX, pointIndex[str(highestX)]]
     lowestXY = [lowestX, pointIndex[str(lowestX)]]
     # we now have the lowest and highest X i guess
@@ -112,15 +115,22 @@ while True:
         if isPointInTriangle:
             removePoints.append(point)
 
-    for element in removePoints:
-        floatedPoints.remove(element)
+    for element in removePoints: floatedPoints.remove(element)
     print(
         f"[RUN {str(runs)}] Removed {str(len(removePoints))} point(s) in a hull!")
     print(f"[RUN {str(runs)}]", " | ".join(thisRun))
     print(
         f"[RUN {str(runs)}] Triangle points:", " ".join([str(el) for el in [lowestXY, highestXY, furthestPoint]]))
-    runs += 1
     print("##################################################################")
+    runs += 1
+    timings["runs"]["run" + str(runs)] = {"time": float(round(time.time() - runTime, ndigits=2)), "removedPoints": len(removePoints)}
 
+doneTime = time.time()-start_time
 print(floatedPoints)
-print("Quickhulled in", int(round((time.time()-start_time)*1000, ndigits=0)), "ms!")
+print("Quickhulled in", int(round(doneTime*1000, ndigits=0)), "ms!")
+timings["completeTime"] = float(round(doneTime, ndigits=2))
+
+import json
+
+with open('timings.json', 'w') as fp:
+    json.dump(timings, fp, indent=4)

@@ -1,0 +1,250 @@
+{
+    "runs": {
+        "run2": {
+            "time": 0.67,
+            "removedPoints": 1488
+        },
+        "run3": {
+            "time": 0.69,
+            "removedPoints": 3272
+        },
+        "run4": {
+            "time": 0.31,
+            "removedPoints": 958
+        },
+        "run5": {
+            "time": 0.18,
+            "removedPoints": 42
+        },
+        "run6": {
+            "time": 0.25,
+            "removedPoints": 929
+        },
+        "run7": {
+            "time": 0.16,
+            "removedPoints": 309
+        },
+        "run8": {
+            "time": 0.13,
+            "removedPoints": 42
+        },
+        "run9": {
+            "time": 0.12,
+            "removedPoints": 10
+        },
+        "run10": {
+            "time": 0.12,
+            "removedPoints": 43
+        },
+        "run11": {
+            "time": 0.12,
+            "removedPoints": 31
+        },
+        "run12": {
+            "time": 0.13,
+            "removedPoints": 139
+        },
+        "run13": {
+            "time": 0.11,
+            "removedPoints": 17
+        },
+        "run14": {
+            "time": 0.14,
+            "removedPoints": 684
+        },
+        "run15": {
+            "time": 0.09,
+            "removedPoints": 30
+        },
+        "run16": {
+            "time": 0.08,
+            "removedPoints": 17
+        },
+        "run17": {
+            "time": 0.09,
+            "removedPoints": 30
+        },
+        "run18": {
+            "time": 0.09,
+            "removedPoints": 61
+        },
+        "run19": {
+            "time": 0.08,
+            "removedPoints": 46
+        },
+        "run20": {
+            "time": 0.08,
+            "removedPoints": 19
+        },
+        "run21": {
+            "time": 0.08,
+            "removedPoints": 241
+        },
+        "run22": {
+            "time": 0.07,
+            "removedPoints": 6
+        },
+        "run23": {
+            "time": 0.07,
+            "removedPoints": 17
+        },
+        "run24": {
+            "time": 0.07,
+            "removedPoints": 21
+        },
+        "run25": {
+            "time": 0.07,
+            "removedPoints": 5
+        },
+        "run26": {
+            "time": 0.07,
+            "removedPoints": 3
+        },
+        "run27": {
+            "time": 0.07,
+            "removedPoints": 20
+        },
+        "run28": {
+            "time": 0.06,
+            "removedPoints": 3
+        },
+        "run29": {
+            "time": 0.06,
+            "removedPoints": 10
+        },
+        "run30": {
+            "time": 0.07,
+            "removedPoints": 369
+        },
+        "run31": {
+            "time": 0.05,
+            "removedPoints": 302
+        },
+        "run32": {
+            "time": 0.04,
+            "removedPoints": 199
+        },
+        "run33": {
+            "time": 0.03,
+            "removedPoints": 45
+        },
+        "run34": {
+            "time": 0.03,
+            "removedPoints": 54
+        },
+        "run35": {
+            "time": 0.02,
+            "removedPoints": 70
+        },
+        "run36": {
+            "time": 0.02,
+            "removedPoints": 28
+        },
+        "run37": {
+            "time": 0.02,
+            "removedPoints": 36
+        },
+        "run38": {
+            "time": 0.02,
+            "removedPoints": 48
+        },
+        "run39": {
+            "time": 0.02,
+            "removedPoints": 52
+        },
+        "run40": {
+            "time": 0.01,
+            "removedPoints": 36
+        },
+        "run41": {
+            "time": 0.01,
+            "removedPoints": 13
+        },
+        "run42": {
+            "time": 0.01,
+            "removedPoints": 29
+        },
+        "run43": {
+            "time": 0.01,
+            "removedPoints": 16
+        },
+        "run44": {
+            "time": 0.01,
+            "removedPoints": 24
+        },
+        "run45": {
+            "time": 0.01,
+            "removedPoints": 15
+        },
+        "run46": {
+            "time": 0.01,
+            "removedPoints": 10
+        },
+        "run47": {
+            "time": 0.01,
+            "removedPoints": 28
+        },
+        "run48": {
+            "time": 0.01,
+            "removedPoints": 14
+        },
+        "run49": {
+            "time": 0.01,
+            "removedPoints": 17
+        },
+        "run50": {
+            "time": 0.0,
+            "removedPoints": 17
+        },
+        "run51": {
+            "time": 0.0,
+            "removedPoints": 7
+        },
+        "run52": {
+            "time": 0.0,
+            "removedPoints": 17
+        },
+        "run53": {
+            "time": 0.0,
+            "removedPoints": 8
+        },
+        "run54": {
+            "time": 0.0,
+            "removedPoints": 10
+        },
+        "run55": {
+            "time": 0.0,
+            "removedPoints": 5
+        },
+        "run56": {
+            "time": 0.0,
+            "removedPoints": 13
+        },
+        "run57": {
+            "time": 0.0,
+            "removedPoints": 4
+        },
+        "run58": {
+            "time": 0.0,
+            "removedPoints": 8
+        },
+        "run59": {
+            "time": 0.0,
+            "removedPoints": 3
+        },
+        "run60": {
+            "time": 0.0,
+            "removedPoints": 4
+        },
+        "run61": {
+            "time": 0.0,
+            "removedPoints": 3
+        },
+        "run62": {
+            "time": 0.0,
+            "removedPoints": 3
+        }
+    },
+    "fileLoadTime": 0.0,
+    "completeTime": 4.7
+}
