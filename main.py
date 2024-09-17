@@ -90,7 +90,7 @@ while True:
         elif highestX == None or point[0] > highestX:
             highestX = point[0]
             pointIndex[str(point[0])] = point[1]
-    if floatedPoints == [] or highestX == -69:
+    if floatedPoints == [] or highestX == None:
         break
     highestXY = [highestX, pointIndex[str(highestX)]]
     lowestXY = [lowestX, pointIndex[str(lowestX)]]
